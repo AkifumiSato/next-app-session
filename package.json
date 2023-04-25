@@ -2,7 +2,7 @@
   "name": "red-session",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/session.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"

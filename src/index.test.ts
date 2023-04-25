@@ -1,15 +1,13 @@
-import { Session } from "./session";
+import { redSession } from ".";
 import Redis from "ioredis-mock";
 
 test("セッションに値が格納・取得でき、Redisに状態が保存されていること", async () => {
   // Arrange
   const redis = new Redis();
-  const session = new Session<{
+  const { getSession } = redSession<{
     counter: number;
-  }>({
-    redis,
-    key: "test-user-key",
-  });
+  }>({ redis });
+  const session = getSession("test-user-key");
   // Act
   await session.set("counter", 1);
   // Assert
@@ -23,9 +21,10 @@ test("セッションの有効期限が設定できること", async () => {
   // Arrange
   const TTL = 10;
   const redis = new Redis();
-  const session = new Session<{
+  const { getSession } = redSession<{
     counter: number;
-  }>({ redis, key: "test-user-key", ttl: TTL });
+  }>({ redis, ttl: TTL });
+  const session = getSession("test-user-key");
   // Act
   await session.set("counter", 1);
   // Assert

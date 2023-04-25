@@ -1,5 +1,5 @@
 import "./globals.css";
-import { getSession } from "@/lib/server";
+import { getUserSession } from "@/lib/server";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +11,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession();
+  const session = await getUserSession();
   const prev = (await session.get("counter")) ?? 0;
   await session.set("counter", prev + 1);
   // todo: セッションを画面上で表示できるようにhooksを用意
