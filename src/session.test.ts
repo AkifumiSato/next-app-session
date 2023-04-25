@@ -1,4 +1,4 @@
-import { Session } from "@/lib/server/session";
+import { Session } from "./session";
 import Redis from "ioredis-mock";
 
 test("セッションに値が格納・取得でき、Redisに状態が保存されていること", async () => {

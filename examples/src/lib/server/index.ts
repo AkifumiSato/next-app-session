@@ -1,4 +1,4 @@
-import { Session } from "@/lib/server/session";
+import { Session } from "red-session";
 import { Redis } from "ioredis";
 import { cookies } from "next/headers";
 

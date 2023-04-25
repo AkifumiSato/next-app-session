@@ -1,4 +1,4 @@
-import { Redis } from "ioredis";
+import Redis from "ioredis";
 
 export class Session<T extends Record<string, any>> {
   private readonly items: Partial<T>;
