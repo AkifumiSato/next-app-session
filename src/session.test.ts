@@ -6,7 +6,10 @@ test("セッションに値が格納・取得でき、Redisに状態が保存さ
   const redis = new Redis();
   const session = new Session<{
     counter: number;
-  }>(redis, "test-user-key");
+  }>({
+    redis,
+    key: "test-user-key",
+  });
   // Act
   await session.set("counter", 1);
   // Assert
@@ -16,4 +19,15 @@ test("セッションに値が格納・取得でき、Redisに状態が保存さ
   });
 });
 
-test.todo("セッションの有効期限が設定できること");
+test("セッションの有効期限が設定できること", async () => {
+  // Arrange
+  const TTL = 10;
+  const redis = new Redis();
+  const session = new Session<{
+    counter: number;
+  }>({ redis, key: "test-user-key", ttl: TTL });
+  // Act
+  await session.set("counter", 1);
+  // Assert
+  expect(await redis.ttl("test-user-key")).toBe(TTL);
+});

@@ -15,5 +15,8 @@ export const getSession = async () => {
   console.log("[[[cookieId]]]", cookieId);
   return new Session<{
     counter: number;
-  }>(redis, cookieId);
+  }>({
+    redis,
+    key: cookieId,
+  });
 };
