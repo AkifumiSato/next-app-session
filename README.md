@@ -10,7 +10,9 @@ const { getSession } = redSession<{
   counter: number;
 }>({ redis, ttl: 3600 });
 const session = getSession("test-user-key");
-// session: { counter: 0 }
+await session.set("counter", 1);
+
+const counter = await session.get("counter"); // 1
 ```
 
 ## Todo
@@ -22,9 +24,9 @@ const session = getSession("test-user-key");
   - [x] セッションに値が格納・取得できること
   - [x] Redisに状態が保存されていること
   - [x] セッションの有効期限が設定できること
-- [ ] APIの設計
+- [x] APIの設計
   - [x] セッションの取得の関数を返す
-  - [ ] Clusterモードに対応
+  - [x] Clusterモードに対応
 - [ ] 簡単なセッションのデモ実装
   - [ ] Topページでセッションカウンターを実装
     - [x] UIの実装

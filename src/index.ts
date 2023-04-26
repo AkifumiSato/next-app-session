@@ -1,11 +1,11 @@
 import { Session } from "./session";
-import Redis from "ioredis";
+import { Redis, Cluster } from "ioredis";
 
 export function redSession<T extends Record<string, any>>({
   redis,
   ttl,
 }: {
-  redis: Redis;
+  redis: Redis | Cluster;
   ttl?: number;
 }) {
   return {

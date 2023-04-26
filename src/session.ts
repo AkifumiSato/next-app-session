@@ -1,7 +1,7 @@
-import Redis from "ioredis";
+import { Redis, Cluster } from "ioredis";
 
 export class Session<T extends Record<string, any>> {
-  private readonly redis: Redis;
+  private readonly redis: Redis | Cluster;
   private readonly key: string;
   private readonly ttl: number | undefined;
 
@@ -10,7 +10,7 @@ export class Session<T extends Record<string, any>> {
     key,
     ttl,
   }: {
-    redis: Redis;
+    redis: Redis | Cluster;
     key: string;
     ttl?: number;
   }) {
