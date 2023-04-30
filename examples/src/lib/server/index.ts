@@ -1,4 +1,4 @@
-import { redSession } from "red-session";
+import { redSession } from "next-app-session";
 import { Redis } from "ioredis";
 import { cookies } from "next/headers";
 

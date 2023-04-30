@@ -1,6 +1,6 @@
-# red-session
+# next-app-session
 
-`red-session` is a utility that persists sessions to Redis.
+`next-app-session` is a utility that persists sessions to Redis.
 
 ## Usage
 
@@ -34,7 +34,8 @@ const counter = await session.get("counter"); // 1
     - [x] jestの導入
     - [ ] セッションの開始処理を実装
     - [ ] セッションを画面上で表示できるようにhooksを用意
-- [ ] red-session/nextの実装
+- [ ] next-app-sessionの実装
+  - [ ] APIリネーム
   - [ ] セッションのチェックと初期化リダイレクト周りを実装
   - [ ] useSessionを実装
     - [ ] Providerにsessionを渡して実装

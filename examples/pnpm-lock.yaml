@@ -7,15 +7,15 @@ dependencies:
   next:
     specifier: 13.3.1
     version: 13.3.1(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)
+  next-app-session:
+    specifier: file:./..
+    version: file:..(ioredis@5.3.2)
   react:
     specifier: 18.2.0
     version: 18.2.0
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
-  red-session:
-    specifier: file:./..
-    version: file:..(ioredis@5.3.2)
   tailwindcss:
     specifier: 3.3.1
     version: 3.3.1(postcss@8.4.23)
@@ -4380,7 +4380,7 @@ packages:
   file:..(ioredis@5.3.2):
     resolution: {directory: .., type: directory}
     id: file:..
-    name: red-session
+    name: next-app-session
     version: 0.1.0
     peerDependencies:
       ioredis: ^5.0.0
